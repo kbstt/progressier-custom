@@ -21,7 +21,7 @@ function buildCustomManifest(){
    obj.name = titleNode.textContent.trim();
    let imgEl = imgNode.querySelector('img');
    if (imgEl){
-     let src = imgEl.getAttribute('src');
+     let src = imgEl.getAttribute('src') || "";
      if (src.includes("cloudfront.net")){
        let srcUrl = new URL(src);
        srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
