@@ -9,6 +9,7 @@ function buildCustomManifest(){
    let titleNode =document.getElementById('001');
    let imgNode = document.getElementById('002');
    if (!titleNode || !imgNode){return;}
+   if (!imgNode.querySelector('img') || !titleNode.textContent){return;}
    clearInterval(initializing);
    let startUrl = window.location.pathname.slice(1, window.location.pathname.length);
    if (window.location.search){startUrl += window.location.search;}
