@@ -12,7 +12,7 @@ function buildCustomManifest(){
    let imgEl = imgNode.querySelector('img');
    let titleContent = titleNode.textContent;
    if (!imgEl || !titleContent){return;}
-   let imgSrc =  !imgEl.getAttribute('src');
+   let imgSrc = imgEl.getAttribute('src');
    if (!imgSrc){return;}
    if (!imgSrc.includes('cloudfront.net')){return;}
    clearInterval(initializing);
