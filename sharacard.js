@@ -6,8 +6,11 @@ function initProgressierScript(){
 
 function buildCustomManifest(){
  let initializing = setInterval(function(){
+
    let titleNode = document.getElementById('001');
    let imgNode = document.getElementById('002');
+      console.log(titleNode);
+   console.log(imgNode);
    if (!titleNode || !imgNode){return;}
    console.log(titleNode);
    console.log(imgNode);
