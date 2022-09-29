@@ -1,7 +1,12 @@
 function initProgressierScript(){
   let script = document.createElement('script');
   script.setAttribute('src', 'https://progressier.com/client/script.js?id=jt8QWwCMIOH1fQxZu4Fy');
-  document.querySelector('body').appendChild(script);
+  let initiating = setInterval(function(){
+    let body = document.querySelector('body');
+    if (!body){return;}
+    clearInterval(initiating);
+    body.appendChild(script);
+  }, 100); 
 };
 
 function buildCustomManifest(){
@@ -29,7 +34,7 @@ function buildCustomManifest(){
      name: titleContent.trim(),
      icon512: icon512
    }; 
-  initProgressierScript()
+  initProgressierScript();
  }, 200);
 };
 
