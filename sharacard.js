@@ -1,3 +1,5 @@
+if (window.progressierScriptInitialized){return;}
+
 function initProgressierScript(){
   let script = document.createElement('script');
   script.setAttribute('src', 'https://progressier.com/client/script.js?id=jt8QWwCMIOH1fQxZu4Fy');
@@ -53,3 +55,5 @@ if (window.location.href.includes("sharacardcustomer")){
 else {
  initProgressierScript();
 }
+
+window.progressierScriptInitialized = true;
