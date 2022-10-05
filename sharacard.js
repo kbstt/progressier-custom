@@ -40,7 +40,7 @@ function buildCustomManifest(){
      uid: uid,
      scope: currentPath,
      name: titleContent.trim(),
-     icon512: icon512
+     icon512: window.btoa(icon512)
    }; 
   initProgressierScript();
  }, 200);
