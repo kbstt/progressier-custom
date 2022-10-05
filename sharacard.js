@@ -11,11 +11,11 @@ function initProgressierScript(){
 
 function addTrailingSlash(){
   let path  = window.location.pathname;
-	let last = path[path.length -1];
-	if (last === "/"){return;}
-	let url = new URL(window.location.href);
-	url.pathname += "/";
-	window.history.replaceState({addingtrailingslash: true}, document.title, url.href);
+  let last = path[path.length -1];
+  if (last === "/"){return;}
+  let url = new URL(window.location.href);
+  url.pathname += "/";
+  window.history.replaceState({addingtrailingslash: true}, document.title, url.href);
 }
 
 function buildCustomManifest(){
