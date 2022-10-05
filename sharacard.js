@@ -9,6 +9,15 @@ function initProgressierScript(){
   }, 100); 
 };
 
+function addTrailingSlash(){
+  let path  = window.location.pathname;
+	let last = path[path.length -1];
+	if (last === "/"){return;}
+	let url = new URL(window.location.href);
+	url.pathname += "/";
+	window.history.replaceState({addingtrailingslash: true}, document.title, url.href);
+}
+
 function buildCustomManifest(){
  let initializing = setInterval(function(){
    let titleNode = document.getElementById('001');
@@ -21,16 +30,15 @@ function buildCustomManifest(){
    if (!imgSrc){return;}
    if (!imgSrc.includes('cloudfront.net')){return;}
    clearInterval(initializing);
-   let startUrl = window.location.pathname.slice(1, window.location.pathname.length);
-   if (window.location.search){startUrl += window.location.search;}
-   let uid = new URL(window.location.href).searchParams.get('unid');
+   let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
+   let uid = window.location.pathname.split("/")[2];
    let srcUrl = new URL(imgSrc);
    srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
    let icon512 = srcUrl.href;
    window.progressierAppRuntimeSettings = {
-     startUrl: startUrl,
+     startUrl: currentPath,
      uid: uid,
-     scope: "",
+     scope: currentPath,
      name: titleContent.trim(),
      icon512: icon512
    }; 
@@ -39,6 +47,7 @@ function buildCustomManifest(){
 };
 
 if (window.location.href.includes("sharacardcustomer")){
+ addTrailingSlash();
  buildCustomManifest();
 }
 else {
