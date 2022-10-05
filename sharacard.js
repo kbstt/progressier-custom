@@ -40,7 +40,8 @@ if (!window.progressierCustomScriptInitialized){
        startUrl: currentPath,
        uid: uid,
        scope: currentPath,
-       name: titleContent.trim()
+       name: titleContent.trim(),
+       icon512: icon512
      }; 
     initProgressierScript();
    }, 200);
