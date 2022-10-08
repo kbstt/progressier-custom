@@ -48,12 +48,13 @@ if (!window.progressierCustomScriptInitialized){
   };
 
   if (window.location.href.includes("sharacardcustomer")){
-   addTrailingSlash();
-   buildCustomManifest();
+    buildCustomManifest();
+  }
+  else if (window.location.href.includes("sharacardsingleadmin")){
+    buildCustomManifest();
   }
   else {
-   initProgressierScript();
+    initProgressierScript(); 
   }
-
   window.progressierCustomScriptInitialized = true;
-}
+ }
