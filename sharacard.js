@@ -41,7 +41,7 @@ function buildCustomManifest(){
 if (window.location.href.includes("sharacardcustomer")){
  buildCustomManifest();
 }
-if (window.location.href.includes("sharacardsingleadmin")){
+else if (window.location.href.includes("sharacardsingleadmin")){
  buildCustomManifest();
 }
 else {
