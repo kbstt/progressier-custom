@@ -37,7 +37,7 @@ if (!window.progressierCustomScriptInitialized){
      srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
      let icon512 = srcUrl.href;
      window.progressierAppRuntimeSettings = {
-       startUrl: currentPath,
+       startUrl: currentPath+"?unid="+uid,
        uid: uid,
        scope: currentPath,
        name: titleContent.trim(),
