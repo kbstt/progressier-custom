@@ -32,7 +32,8 @@ if (!window.progressierCustomScriptInitialized){
      if (!imgSrc.includes('cloudfront.net')){return;}
      clearInterval(initializing);
      let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
-     let uid = window.location.pathname.split("/")[2];
+     let spot = window.location.pathname.startsWith("/sharacard") ? 2 : 3;
+     let uid = window.location.pathname.split("/")[spot];
      let srcUrl = new URL(imgSrc);
      srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
      let icon512 = srcUrl.href;
