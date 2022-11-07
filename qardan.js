@@ -13,7 +13,7 @@ if (!window.progressierCustomScriptInitialized){
   
   function addIframe(){
     let slug = window.location.pathname.split("/")[1];
-    let appId = getMapping(slug);
+    let appId = mapSlug(slug);
     let url = window.jotFormBaseUrl+appId;
     let initiating = setInterval(function(){
  	let body = document.querySelector('body');
