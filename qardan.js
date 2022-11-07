@@ -1,11 +1,12 @@
-window.nameIdMappings = [
+window.appSlugMappings = [
   {app: "5436412498932914150", slug: "qardan"},
 ];
 
+window.jotFormBaseUrl = "https://www.jotform.com/edit/";
+
 if (!window.progressierCustomScriptInitialized){  
-  function getMapping(slug){
-    let options = window.nameIdMappings;
-    let match = options.find(o => o.slug === slug);
+  function mapSlug(slug){
+    let match = (window.appSlugMappings||[]).find(o => o.slug === slug);
     if (!match){return slug;}
     return match.app;
   }
@@ -13,14 +14,14 @@ if (!window.progressierCustomScriptInitialized){
   function addIframe(){
     let slug = window.location.pathname.split("/")[1];
     let appId = getMapping(slug);
-    let url = "https://www.jotform.com/app/"+appId;
+    let url = window.jotFormBaseUrl+appId;
     let initiating = setInterval(function(){
-      let body = document.querySelector('body');
-      if (!body){return;}
-      clearInterval(initiating);
-      let iframe = document.createElement('iframe');
-			iframe.setAttribute('src', url);
-			document.querySelector('body').appendChild(iframe);
+ 	let body = document.querySelector('body');
+	if (!body){return;}
+	clearInterval(initiating);
+	let iframe = document.createElement('iframe');
+	iframe.setAttribute('src', url);
+	document.querySelector('body').appendChild(iframe);
     }, 100); 
   };
 
