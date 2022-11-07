@@ -1,5 +1,11 @@
+//below you can map a jotform app id with a custom slug to use prettier URLs. Examples:
+//going to qardan.installable.app/example1 will open https://www.jotform.com/edit/5436412498932914150
+//going to qardan.installable.app/example2 will open https://www.jotform.com/edit/5436412498932914151
+//this is optional, so you can also directly go to qardan.installable.app/5436412498932914150 or qardan.installable.app/5436412498932914151
+
 window.appSlugMappings = [
-  {app: "5436412498932914150", slug: "qardan"},
+  {app: "5436412498932914150", slug: "example1"},
+  {app: "5436412498932914151", slug: "example2"},
 ];
 
 window.jotFormBaseUrl = "https://www.jotform.com/edit/";
