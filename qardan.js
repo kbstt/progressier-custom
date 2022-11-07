@@ -11,16 +11,16 @@ window.appSlugMappings = [
 window.jotFormBaseUrl = "https://www.jotform.com/edit/";
 
 if (!window.progressierCustomScriptInitialized){  
-  function mapSlug(slug){
+  function getSlug(){ 
+    let slug = window.location.pathname.split("/")[1];
     if (!slug){return window.appSlugMappings[0].app;}
     let match = (window.appSlugMappings||[]).find(o => o.slug === slug);
     if (!match){return slug;}
     return match.app;
   }
   
-  function addIframe(){
-    let slug = window.location.pathname.split("/")[1];
-    let appId = mapSlug(slug);
+  function addIframe(){   
+    let appId = getSlug(slug);
     let url = window.jotFormBaseUrl+appId;
     let initiating = setInterval(function(){
  	let body = document.querySelector('body');
@@ -43,7 +43,9 @@ if (!window.progressierCustomScriptInitialized){
 
   function setDynamicManifest(){
      let url = window.location.href;
+     let appId = getSlug(slug);
      window.progressierAppRuntimeSettings = {
+       id: appId,
        startUrl: url,
        scope: url
      }; 
