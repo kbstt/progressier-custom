@@ -6,6 +6,7 @@ window.jotFormBaseUrl = "https://www.jotform.com/edit/";
 
 if (!window.progressierCustomScriptInitialized){  
   function mapSlug(slug){
+    if (!slug){return window.appSlugMappings[0].app;}
     let match = (window.appSlugMappings||[]).find(o => o.slug === slug);
     if (!match){return slug;}
     return match.app;
