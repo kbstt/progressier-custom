@@ -43,9 +43,10 @@ if (!window.progressierCustomScriptInitialized){
 
   function setDynamicManifest(){
      let split = window.location.pathname.split('/');
-     let url = (split&&split[1] ? split[1] : "")+'/';
+     let path = split&&split[1] ? split[1] : "";
+     if (path){path += "/";}
      let uid = getSlug();
-     let obj = {startUrl: url, scope: url};
+     let obj = {startUrl: path, scope: path};
      if (uid){obj.uid = uid;}
      window.progressierAppRuntimeSettings = obj; 
   };
