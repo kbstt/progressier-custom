@@ -20,7 +20,7 @@ if (!window.progressierCustomScriptInitialized){
   }
   
   function addIframe(){   
-    let appId = getSlug(slug);
+    let appId = getSlug();
     let url = window.jotFormBaseUrl+appId;
     let initiating = setInterval(function(){
  	let body = document.querySelector('body');
