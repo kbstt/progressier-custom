@@ -45,9 +45,9 @@ if (!window.progressierCustomScriptInitialized){
      let split = window.location.pathname.split('/');
      let path = split&&split[1] ? split[1] : "";
      if (path){path += "/";}
-     let uid = getSlug();
+     //let uid = getSlug();
      let obj = {startUrl: path};
-     if (uid){obj.uid = uid;}
+     //if (uid){obj.uid = uid;}
      window.progressierAppRuntimeSettings = obj; 
   };
 	
