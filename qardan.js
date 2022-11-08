@@ -45,7 +45,7 @@ if (!window.progressierCustomScriptInitialized){
      let url = window.location.href;
      let appId = getSlug();
      window.progressierAppRuntimeSettings = {
-       id: appId,
+       uid: appId,
        startUrl: url,
        scope: url
      }; 
