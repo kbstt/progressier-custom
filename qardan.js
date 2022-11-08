@@ -50,9 +50,22 @@ if (!window.progressierCustomScriptInitialized){
        scope: url
      }; 
   };
+	
+  function initProgressierScript(){
+    let initiating = setInterval(function(){
+      let body = document.querySelector('body');
+      if (!body){return;}
+      clearInterval(initiating);
+      let progressierId = body.getAttribute('data-progressier-app-id');
+      let script = document.createElement('script');
+      script.setAttribute('src', 'https://progressier.com/client/script.js?id='+progressierId);
+      body.appendChild(script);
+    }, 100); 
+  };
   
   addTrailingSlash();
   setDynamicManifest();
   addIframe();
+  initProgressierScript();
   window.progressierCustomScriptInitialized = true;
 }
