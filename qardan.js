@@ -43,9 +43,9 @@ if (!window.progressierCustomScriptInitialized){
 
   function setDynamicManifest(){
      let url = window.location.href;
-     let appId = getSlug();
+     let uid = getSlug();
      window.progressierAppRuntimeSettings = {
-       uid: appId,
+       uid: uid,
        startUrl: url,
        scope: url
      }; 
