@@ -9,8 +9,12 @@ window.appSlugMappings = [
 ];
 
 window.jotFormBaseUrl = "https://www.jotform.com/edit/";
-
-if (!window.progressierCustomScriptInitialized){  
+window.baseDomainRedirectUrl = "https://showcases3D.com/qardan-app";
+  
+if (!window.location.pathname || window.location.pathname === "/"){
+   window.location.href = window.baseDomainRedirectUrl;
+}
+else if (!window.progressierCustomScriptInitialized){  
   function getSlug(){ 
     let slug = window.location.pathname.split("/")[1];
     if (!slug){return window.appSlugMappings[0].app;}
@@ -62,7 +66,6 @@ if (!window.progressierCustomScriptInitialized){
       body.appendChild(script);
     }, 100); 
   };
-  
   addTrailingSlash();
   setDynamicManifest();
   addIframe();
