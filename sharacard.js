@@ -54,8 +54,8 @@ if (!window.progressierCustomScriptInitialized){
   else if (window.location.href.includes("sharacardsingleadmin")){
     buildCustomManifest();
   }
-  else {
+  /*else {
     initProgressierScript(); 
-  }
+  }*/
   window.progressierCustomScriptInitialized = true;
  }
