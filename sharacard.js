@@ -51,10 +51,10 @@ if (!window.progressierCustomScriptInitialized){
   if (window.location.href.includes("sharacardcustomer")){
     buildCustomManifest();
   }
-  else if (window.location.href.includes("sharacardsingleadmin")){
+  /*else if (window.location.href.includes("sharacardsingleadmin")){
     buildCustomManifest();
   }
-  /*else {
+  else {
     initProgressierScript(); 
   }*/
   window.progressierCustomScriptInitialized = true;
