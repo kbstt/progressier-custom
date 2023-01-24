@@ -1,12 +1,28 @@
 window.playingNow = {};
 
-function getTrackData(){
+function getArtworkData(src){
+	try {
+		let url = new URL(src);
+		let width = url.searchParams.get('w');
+		let height = url.searchParams.get('h');
+		let sizes = width+'x'+height;
+		let type = src.includes('.png') ? 'image/png' : 'image/jpeg';
+		return  [{src: src, sizes: sizes, type: type }];
+	}
+	catch(err){
+		return null;
+	}
+}
+
+async function getTrackData(){
 	let track = document.getElementById('POC');
 	if (!track){return null;}
 	let trackString = track.textContent || "";
 	let trackSplit = trackString.split("**");
 	if (trackSplit.length !== 3){return null;}
-	return {title: trackSplit[0], artist: trackSplit[1], artwork: "https://"+trackSplit[2]};
+	let artwork = that.getArtworkData(trackSplit[2]);
+	if (!artwork){return null;}
+	return {title: trackSplit[0], artist: trackSplit[1], artwork: artwork};
 }
 
 function stopBroadcast(){
@@ -41,8 +57,8 @@ function setPlaybackPositionn(){
 	//navigator.mediaSession.setPositionState({duration: duration, playbackRate: 1, position: position});
 }
 
-function broadcastTrackData(){
-	let track = getTrackData();
+async function broadcastTrackData(){
+	let track = await getTrackData();
 	console.log(track);
 	if (!track){
 		stopBroadcast();
