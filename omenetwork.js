@@ -41,7 +41,7 @@ function setPlaybackPositionn(){
 	//navigator.mediaSession.setPositionState({duration: duration, playbackRate: 1, position: position});
 }
 
-function broadcastTrackData = function(){
+function broadcastTrackData(){
 	let track = getTrackData();
 	console.log(track);
 	let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist || track.artwork !== window.playingNow.artwork;
