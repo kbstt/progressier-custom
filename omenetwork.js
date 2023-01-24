@@ -35,13 +35,12 @@ function stopBroadcast(){
 }
 
 function startBroadcast(track){
-	//some browsers may not support this
 	if (!navigator.mediaSession) {return;}
 	window.playingNow = track;
 	navigator.mediaSession.metadata = new MediaMetadata({title: track.title, artist: track.artist, artwork: track.artwork});
 	navigator.mediaSession.playbackState = "playing";
-	//you also need to tie the controls of the compact player back to the controls of the <audio> element on the page
-	//haven't implemented functions for seekbackward, seekforward, and seekto. See reference: https://developer.mozilla.org/en-US/docs/Web/API/MediaSession
+	
+	//can't currently set action handlers because I can't find a reference to the audio element in the code	
 	/*navigator.mediaSession.setActionHandler('play', function(){});
 	navigator.mediaSession.setActionHandler('pause', function(){});
 	navigator.mediaSession.setActionHandler('stop', function(){});
@@ -54,9 +53,10 @@ function startBroadcast(track){
 }
 
 function setPlaybackPosition(){
-	if (!navigator.mediaSession) {return;}
-	let duration = 1;
-	let position = 10;
+	//can't currently set the playback position because I can't find a reference to the audio element in the code
+	if (!navigator.mediaSession) {return;}	
+	//let duration = 1;
+	//let position = 10;
 	//navigator.mediaSession.setPositionState({duration: duration, playbackRate: 1, position: position});
 }
 
