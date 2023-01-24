@@ -6,9 +6,11 @@ function getArtworkData(src){
 		let url = new URL(src);
 		let width = url.searchParams.get('w');
 		let height = url.searchParams.get('h');
-		let sizes = width+'x'+height;
+		let sizes = width && height ? (width+'x'+height) : null;
 		let type = src.includes('.png') ? 'image/png' : 'image/jpeg';
-		return  [{src: src, sizes: sizes, type: type }];
+		let obj = {src: src, type: type};
+		if (sizes){obj.sizes = sizes;}
+		return [obj];
 	}
 	catch(err){
 		return null;
