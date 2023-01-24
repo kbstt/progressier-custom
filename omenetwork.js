@@ -31,6 +31,7 @@ function getTrackData(){
 function stopBroadcast(){
 	window.playingNow = {};
 	if (!navigator.mediaSession) {return;}
+	navigator.mediaSession.metadata = null;
 	navigator.mediaSession.playbackState = "paused";
 }
 
