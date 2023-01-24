@@ -62,7 +62,6 @@ function setPlaybackPosition(){
 
 function broadcastTrackData(){
 	let track = getTrackData();
-	console.log(track);
 	if (track){
 		let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist;
 		if (isNew){ startBroadcast(track); }
