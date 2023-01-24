@@ -51,7 +51,7 @@ function startBroadcast(track){
 	*/
 }
 
-function setPlaybackPositionn(){
+function setPlaybackPosition(){
 	if (!navigator.mediaSession) {return;}
 	let duration = 1;
 	let position = 10;
