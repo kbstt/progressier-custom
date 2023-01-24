@@ -20,7 +20,7 @@ function getTrackData(){
 	let trackString = track.textContent || "";
 	let trackSplit = trackString.split("**");
 	if (trackSplit.length !== 3){return null;}
-	let artwork = getArtworkData(trackSplit[2]);
+	let artwork = getArtworkData("https://"+trackSplit[2]);
 	if (!artwork){return null;}
 	return {title: trackSplit[0], artist: trackSplit[1], artwork: artwork};
 }
