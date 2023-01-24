@@ -14,7 +14,7 @@ function getArtworkData(src){
 	}
 }
 
-async function getTrackData(){
+function getTrackData(){
 	let track = document.getElementById('POC');
 	if (!track){return null;}
 	let trackString = track.textContent || "";
@@ -57,8 +57,8 @@ function setPlaybackPositionn(){
 	//navigator.mediaSession.setPositionState({duration: duration, playbackRate: 1, position: position});
 }
 
-async function broadcastTrackData(){
-	let track = await getTrackData();
+function broadcastTrackData(){
+	let track = getTrackData();
 	console.log(track);
 	if (track){
 		let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist;
