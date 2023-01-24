@@ -44,15 +44,12 @@ function setPlaybackPositionn(){
 function broadcastTrackData(){
 	let track = getTrackData();
 	console.log(track);
-	let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist || track.artwork !== window.playingNow.artwork;
 	if (!track){
 		stopBroadcast();
 	}
-	else if (isNew){
-		startBroadcast(track);
-		setPlaybackPosition();
-	}
-	else {
+	else{
+		let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist || track.artwork !== window.playingNow.artwork;
+		if (isNew){ startBroadcast(track); }
 		setPlaybackPosition();
 	}
 }
