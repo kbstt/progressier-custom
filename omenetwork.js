@@ -60,13 +60,13 @@ function setPlaybackPositionn(){
 async function broadcastTrackData(){
 	let track = await getTrackData();
 	console.log(track);
-	if (!track){
-		stopBroadcast();
-	}
-	else{
-		let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist || track.artwork !== window.playingNow.artwork;
+	if (track){
+		let isNew = track.title !== window.playingNow.title || track.artist !== window.playingNow.artist;
 		if (isNew){ startBroadcast(track); }
 		setPlaybackPosition();
+	}
+	else{
+		stopBroadcast();
 	}
 }
 
