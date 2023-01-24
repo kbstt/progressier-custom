@@ -53,8 +53,9 @@ function startBroadcast(track){
 }
 
 function setPlaybackPosition(){
-	//can't currently set the playback position because I can't find a reference to the audio element in the code
 	if (!navigator.mediaSession) {return;}	
+	
+	//can't currently set the playback position because I can't find a reference to the audio element in the code
 	//let duration = 1;
 	//let position = 10;
 	//navigator.mediaSession.setPositionState({duration: duration, playbackRate: 1, position: position});
