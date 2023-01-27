@@ -95,6 +95,7 @@ function setPlaybackPosition(){
 	if (!navigator.mediaSession) {return;}
 	let audio = getAudioElement();
 	if (!audio){return;}
+	if (audio.readyState !== 3 && audio.readyState !== 4){return;}
 	let duration = audio.duration;
 	let position = audio.currentTime;
 	let rate = audio.playbackRate;
