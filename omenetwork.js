@@ -1,5 +1,12 @@
 window.playingNow = {};
 
+function getAudioElement(){
+	let els = document.querySelectorAll('audio');
+	if (els.length < 1){return null;}
+	if (els.length > 1){console.log("There is more than one audio element on the page. The compact player doesn't know which to control");return null;}
+	return els[0];
+}
+
 function getArtworkData(src){
 	if (!src){return null;}
 	if (!src.includes('http')){src = "https:"+src;}
@@ -31,24 +38,39 @@ function startBroadcast(track){
 	window.playingNow = track;
 	navigator.mediaSession.metadata = new MediaMetadata({title: track.title, artist: track.artist, artwork: track.artwork});
 	navigator.mediaSession.playbackState = "playing";
-	//you also need to tie the controls of the compact player back to the controls of the <audio> element on the page
-	//haven't implemented functions for seekbackward, seekforward, and seekto. See reference: https://developer.mozilla.org/en-US/docs/Web/API/MediaSession
-	/*navigator.mediaSession.setActionHandler('play', function(){});
-	navigator.mediaSession.setActionHandler('pause', function(){});
-	navigator.mediaSession.setActionHandler('stop', function(){});
+	
+	//we need to tie the controls of the compact player back to the controls of the <audio> element on the page	
+	navigator.mediaSession.setActionHandler('play', function(){
+		let audio = getAudioElement();
+		if (!audio){return;}
+		audio.play();
+	});
+	navigator.mediaSession.setActionHandler('pause', function(){
+		let audio = getAudioElement();
+		if (!audio){return;}
+		audio.pause();
+	});
+	navigator.mediaSession.setActionHandler('stop', function(){
+		let audio = getAudioElement();
+		if (!audio){return;}
+		audio.currentTime = 0;
+		audio.pause();
+	});
 	navigator.mediaSession.setActionHandler('previoustrack', function(){});
 	navigator.mediaSession.setActionHandler('nexttrack', function(){});
 	navigator.mediaSession.setActionHandler('seekbackward', function(){});
 	navigator.mediaSession.setActionHandler('seekforward',  function(){});
 	navigator.mediaSession.setActionHandler('seekto',  function(){});
-	*/
 }
 
 function setPlaybackPosition(){
 	if (!navigator.mediaSession) {return;}
-	let duration = 1;
-	let position = 10;
-	//navigator.mediaSession.setPositionState({duration: duration, playbackRate: 1, position: position});
+	let audio = getAudioElement();
+	if (!audio){return;}
+	let duration = audio.duration;
+	let position = audio.currentTime;
+	let rate = audio.playbackRate;
+	navigator.mediaSession.setPositionState({duration: duration, playbackRate: rate, position: position});
 }
 
 function broadcastTrackData(){
