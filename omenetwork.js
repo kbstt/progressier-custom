@@ -37,14 +37,12 @@ function _playTrack_(){
 	let audio = getAudioElement();
 	if (!audio){return;}
 	audio.play();
-	navigator.mediaSession.playbackState = "playing";
 }
 
 function _pauseTrack_(){
 	let audio = getAudioElement();
 	if (!audio){return;}
 	audio.pause();
-	navigator.mediaSession.playbackState = "paused";
 }
 
 function _stopTrack_(){
@@ -52,7 +50,7 @@ function _stopTrack_(){
 	if (!audio){return;}
 	audio.currentTime = 0;
 	audio.pause();
-	navigator.mediaSession.playbackState = "paused";
+	
 }
 
 function _seekBackward_(){
@@ -95,10 +93,17 @@ function setPlaybackPosition(){
 	if (!navigator.mediaSession) {return;}
 	let audio = getAudioElement();
 	if (!audio){return;}
+	if (!navigator.mediaSession) {return;}
 	if (audio.readyState !== 3 && audio.readyState !== 4){return;}
 	let duration = audio.duration;
 	let position = audio.currentTime;
 	let rate = audio.playbackRate;
+	if (audio.paused){
+		navigator.mediaSession.playbackState = "paused";
+	}
+	else {
+		navigator.mediaSession.playbackState = "playing";
+	}
 	navigator.mediaSession.setPositionState({duration: duration, playbackRate: rate, position: position});
 }
 
