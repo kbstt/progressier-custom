@@ -1,4 +1,5 @@
 window.playingNow = {};
+window.defaultSkipTime = 10;
 
 function getAudioElement(){
 	let els = document.querySelectorAll('audio');
@@ -32,6 +33,46 @@ function stopBroadcast(){
 	navigator.mediaSession.playbackState = "paused";
 }
 
+function _playTrack_(){
+	let audio = getAudioElement();
+	if (!audio){return;}
+	audio.play();
+	navigator.mediaSession.playbackState = "playing";
+}
+
+function _pauseTrack_(){
+	let audio = getAudioElement();
+	if (!audio){return;}
+	audio.pause();
+	navigator.mediaSession.playbackState = "paused";
+}
+
+function _stopTrack_(){
+	let audio = getAudioElement();
+	if (!audio){return;}
+	audio.currentTime = 0;
+	audio.pause();
+	navigator.mediaSession.playbackState = "paused";
+}
+
+function _seekBackward_(){
+	let audio = getAudioElement();
+	if (!audio){return;}
+	audio.currentTime = Math.max(audio.currentTime - window.defaultSkipTime, 0);
+}
+
+function _seekForward_(){
+	let audio = getAudioElement();
+	if (!audio){return;}
+	audio.currentTime = Math.min(audio.currentTime + window.defaultSkipTime, audio.duration);
+}
+
+function _seekTo_(details){
+	let audio = getAudioElement();
+	if (!audio){return;}
+	audio.currentTime = details.seekTime;
+}
+
 function startBroadcast(track){
 	//some browsers may not support this
 	if (!navigator.mediaSession) {return;}
@@ -40,27 +81,14 @@ function startBroadcast(track){
 	navigator.mediaSession.playbackState = "playing";
 	
 	//we need to tie the controls of the compact player back to the controls of the <audio> element on the page	
-	navigator.mediaSession.setActionHandler('play', function(){
-		let audio = getAudioElement();
-		if (!audio){return;}
-		audio.play();
-	});
-	navigator.mediaSession.setActionHandler('pause', function(){
-		let audio = getAudioElement();
-		if (!audio){return;}
-		audio.pause();
-	});
-	navigator.mediaSession.setActionHandler('stop', function(){
-		let audio = getAudioElement();
-		if (!audio){return;}
-		audio.currentTime = 0;
-		audio.pause();
-	});
-	navigator.mediaSession.setActionHandler('previoustrack', function(){});
-	navigator.mediaSession.setActionHandler('nexttrack', function(){});
-	navigator.mediaSession.setActionHandler('seekbackward', function(){});
-	navigator.mediaSession.setActionHandler('seekforward',  function(){});
-	navigator.mediaSession.setActionHandler('seekto',  function(){});
+	navigator.mediaSession.setActionHandler('play', _playTrack_);
+	navigator.mediaSession.setActionHandler('pause', _pauseTrack_);
+	navigator.mediaSession.setActionHandler('stop', _stopTrack_);
+	navigator.mediaSession.setActionHandler('seekbackward', _seekBackward_);
+	navigator.mediaSession.setActionHandler('seekforward', _seekForward_);
+	navigator.mediaSession.setActionHandler('seekto', _seekTo_);
+	navigator.mediaSession.setActionHandler('previoustrack', null);
+	navigator.mediaSession.setActionHandler('nexttrack', null);
 }
 
 function setPlaybackPosition(){
