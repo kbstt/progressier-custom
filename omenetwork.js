@@ -10,7 +10,7 @@ function getAudioElement(){
 
 function getArtworkData(src){
 	if (!src){return null;}
-	if (!src.includes('http')){src = "https:"+src;}
+	if (!src.startsWith('http')){src = "https:"+src;}
 	let type = src.includes('.png') ? 'image/png' : 'image/jpeg';
 	return [{src: src, type: type}];
 }
