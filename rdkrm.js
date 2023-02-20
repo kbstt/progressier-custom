@@ -1,7 +1,6 @@
-if (!window.progressierCustomScriptInitialized){  
+if (!window.progressierCustomScriptInitialized && window.location.pathname.startsWith("/ride-with")){  
   function setDynamicManifest(){
      let path = window.location.href.replace(window.location.origin, "");
-     if (!path.startsWith("/ride-with/")){return;}
      window.progressierAppRuntimeSettings = {startUrl: path.slice(1, path.length)};
   };
 	
