@@ -2,8 +2,7 @@ if (!window.progressierCustomScriptInitialized){
   function setDynamicManifest(){
      let path = window.location.href.replace(window.location.origin, "");
      if (!path.startsWith("/ride-with/")){return;}
-     let removeFirstCharacter = path.slice(1, path.length);
-     window.progressierAppRuntimeSettings = {startUrl: path};
+     window.progressierAppRuntimeSettings = {startUrl: path.slice(1, path.length)};
   };
 	
   function initProgressierScript(){
