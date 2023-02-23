@@ -7,7 +7,6 @@ function notificationsHaveBeenGranted(){
 
 function autoSwapButtons(){     
   let granted = notificationsHaveBeenGranted();  
-  console.log(granted);
   let subscribeBtn = document.querySelector('.progressier-subscribe-button');  
   let followBtn = document.querySelector('#fb-subscribe-btn');  
   //you may need to adjust the method for hiding both buttons
