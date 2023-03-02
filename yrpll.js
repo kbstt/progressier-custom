@@ -7,4 +7,5 @@ function conditionallyInitializeProgressier(){
     script.setAttribute("src", "https://progressier.com/client/script.js?id=V7BHjQq0puVIGOf3mYkQ");    
     document.querySelector('body').appendChild(script);  
   }
-  conditionallyInitializeProgressier();
+}
+conditionallyInitializeProgressier();
