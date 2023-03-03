@@ -8,4 +8,7 @@ function conditionallyInitializeProgressier(){
     document.querySelector('body').appendChild(script);  
   }
 }
-conditionallyInitializeProgressier();
+window.addEventListener('load', function () {
+  conditionallyInitializeProgressier();'
+})
+
