@@ -8,7 +8,8 @@ function conditionallyInitializeProgressier(){
     document.querySelector('body').appendChild(script);  
   }
 }
+
 window.addEventListener('load', function () {
   conditionallyInitializeProgressier();'
-})
+});
 
