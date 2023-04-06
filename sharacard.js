@@ -1,4 +1,4 @@
-if (!window.progressierInitializationTime){  
+if (!window.progressierInitializationTimer){  
   function initProgressierScript(){
     if (document.getElementById('progressier-script-node')){return;}
     let script = document.createElement('script');
