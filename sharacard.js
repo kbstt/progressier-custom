@@ -23,7 +23,7 @@ if (!window.progressierInitializationTime){
      let titleNode = document.getElementById('001');
      let imgNode = document.getElementById('002');
      if (!titleNode || !imgNode){return;}
-     let imgEl = imgNode.querySelector('img');
+     let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
      let titleContent = titleNode.textContent;
      if (!imgEl || !titleContent){return;}
      let imgSrc = imgEl.getAttribute('src');
