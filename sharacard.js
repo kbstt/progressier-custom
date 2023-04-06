@@ -29,7 +29,7 @@ if (!window.progressierInitializationTime){
      let imgSrc = imgEl.getAttribute('src');
      if (!imgSrc){return;}
      if (!imgSrc.includes('cloudfront.net')){return;}
-     clearInterval(window.progressierInitializationTime);
+     clearInterval(window.progressierInitializationTimer);
      let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
      let spot = window.location.pathname.startsWith("/sharacard") ? 2 : 3;
      let uid = window.location.pathname.split("/")[spot];
