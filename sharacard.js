@@ -1,4 +1,4 @@
-if (!window.progressierCustomScriptInitialized){  
+if (!window.progressierInitializationTime){  
   function initProgressierScript(){
     let script = document.createElement('script');
     script.setAttribute('src', 'https://progressier.com/client/script.js?id=jt8QWwCMIOH1fQxZu4Fy');
@@ -17,10 +17,9 @@ if (!window.progressierCustomScriptInitialized){
     let url = new URL(window.location.href);
     url.pathname += "/";
     window.history.replaceState({addingtrailingslash: true}, document.title, url.href);
-  }
+  };
 
-  function buildCustomManifest(){
-   let initializing = setInterval(function(){
+  function startProgressier(){
      let titleNode = document.getElementById('001');
      let imgNode = document.getElementById('002');
      if (!titleNode || !imgNode){return;}
@@ -30,7 +29,7 @@ if (!window.progressierCustomScriptInitialized){
      let imgSrc = imgEl.getAttribute('src');
      if (!imgSrc){return;}
      if (!imgSrc.includes('cloudfront.net')){return;}
-     clearInterval(initializing);
+     clearInterval(window.progressierInitializationTime);
      let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
      let spot = window.location.pathname.startsWith("/sharacard") ? 2 : 3;
      let uid = window.location.pathname.split("/")[spot];
@@ -45,18 +44,7 @@ if (!window.progressierCustomScriptInitialized){
        icon512: icon512
      }; 
     initProgressierScript();
-   }, 200);
   };
 
-  if (window.location.href.includes("sharacardcustomer")){
-    buildCustomManifest();
-  }
-  else if (window.location.href.includes("sharacardsingleadmin")){
-    addTrailingSlash();
-    initProgressierScript();
-  }
-  /*else {
-    initProgressierScript(); 
-  }*/
-  window.progressierCustomScriptInitialized = true;
+  window.progressierInitializationTimer = setInterval(startProgressier, 1000)
  }
