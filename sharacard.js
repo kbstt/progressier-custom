@@ -40,7 +40,6 @@ if (!window.progressierInitializationTimer){
        name: titleContent.trim(),
        icon512: icon512
      }; 
-     console.log(window.progressierAppRuntimeSettings);
     initProgressierScript();
   };
 
