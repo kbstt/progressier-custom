@@ -4,7 +4,7 @@ if (!window.progressierInitializationTime){
     let script = document.createElement('script');
     script.setAttribute('id', 'progressier-script-node');
     script.setAttribute('src', 'https://progressier.com/client/script.js?id=jt8QWwCMIOH1fQxZu4Fy');
-    document.querySelector('body'.appendChild(script);
+    document.querySelector('body').appendChild(script);
   };
 
   function addTrailingSlash(){
