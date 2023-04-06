@@ -1,13 +1,10 @@
 if (!window.progressierInitializationTime){  
   function initProgressierScript(){
+    if (document.getElementById('progressier-script-node')){return;}
     let script = document.createElement('script');
+    script.setAttribute('id', 'progressier-script-node');
     script.setAttribute('src', 'https://progressier.com/client/script.js?id=jt8QWwCMIOH1fQxZu4Fy');
-    let initiating = setInterval(function(){
-      let body = document.querySelector('body');
-      if (!body){return;}
-      clearInterval(initiating);
-      body.appendChild(script);
-    }, 100); 
+    document.querySelector('body'.appendChild(script);
   };
 
   function addTrailingSlash(){
@@ -29,7 +26,7 @@ if (!window.progressierInitializationTime){
      let imgSrc = imgEl.getAttribute('src');
      if (!imgSrc){return;}
      if (!imgSrc.includes('cloudfront.net')){return;}
-     clearInterval(window.progressierInitializationTimer);
+     clearInterval(window.progressierInitializationTimer);  
      let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
      let spot = window.location.pathname.startsWith("/sharacard") ? 2 : 3;
      let uid = window.location.pathname.split("/")[spot];
@@ -43,6 +40,7 @@ if (!window.progressierInitializationTime){
        name: titleContent.trim(),
        icon512: icon512
      }; 
+     console.log(window.progressierAppRuntimeSettings);
     initProgressierScript();
   };
 
