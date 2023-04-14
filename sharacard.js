@@ -15,32 +15,49 @@ if (!window.progressierInitializationTimer){
     url.pathname += "/";
     window.history.replaceState({addingtrailingslash: true}, document.title, url.href);
   };
+  
+  function getCustomPWAIcon(){
+    try {
+     let imgNode = document.getElementById('002');
+     if (!imgNode){return null;}
+     let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
+     if (!imgEl){return null;}
+     let imgSrc = imgEl.getAttribute('src');
+     if (!imgSrc){return null;}
+     if (!imgSrc.includes('cloudfront.net')){return null;}
+     let srcUrl = new URL(imgSrc);
+     srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
+     return srcUrl.href;
+    }
+    catch(err){
+      return null;
+    }
+  }
+  
+  function getCustomPWAName(){
+     let titleNode = document.getElementById('001');
+     if (!titleNode){return null;}
+     let titleContent = titleNode.textContent;
+     if (!titleContent){return null;}
+     return (titleContent||"").trim();
+  }
 
   function startProgressier(){
-     let titleNode = document.getElementById('001');
-     let imgNode = document.getElementById('002');
-     if (!titleNode || !imgNode){return;}
-     let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
-     let titleContent = titleNode.textContent;
-     if (!imgEl || !titleContent){return;}
-     let imgSrc = imgEl.getAttribute('src');
-     if (!imgSrc){return;}
-     if (!imgSrc.includes('cloudfront.net')){return;}
-     clearInterval(window.progressierInitializationTimer);  
+     let appName = getCustomPWAName();
+     if (!appName){return;}
      addTrailingSlash();
      let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
      let uid = (window.location.href.match(/(\d+x\d+)/g)||[])[0];
      if (!uid){return;}
-     let srcUrl = new URL(imgSrc);
-     srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
-     let icon512 = srcUrl.href;
+     clearInterval(window.progressierInitializationTimer);  
      window.progressierAppRuntimeSettings = {
        startUrl: currentPath+"?unid="+uid,
        uid: uid,
        scope: currentPath,
-       name: titleContent.trim(),
-       icon512: icon512
+       name: appName,
      }; 
+    let customIcon = getCustomPWAIcon();
+    if (customIcon){ window.progressierAppRuntimeSettings.icon512 = customIcon; }
     initProgressierScript();
   };
 
