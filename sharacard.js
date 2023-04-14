@@ -29,8 +29,8 @@ if (!window.progressierInitializationTimer){
      clearInterval(window.progressierInitializationTimer);  
      addTrailingSlash();
      let currentPath = window.location.pathname.slice(1, window.location.pathname.length);
-     let spot = window.location.pathname.startsWith("/sharacard") ? 2 : 3;
-     let uid = window.location.pathname.split("/")[spot];
+     let uid = (window.location.href.match(/(\d+x\d+)/g)||[])[0];
+     if (!uid){return;}
      let srcUrl = new URL(imgSrc);
      srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
      let icon512 = srcUrl.href;
