@@ -22,6 +22,9 @@ if (!window.progressierInitializationTimer){
      if (!imgNode){return null;}
      let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
      if (!imgEl){return null;}
+     let width = imgEl.naturalWidth || imgEl.width;
+     let height = imgEl.naturalHeight || imgEl.height;
+     if (width !== height){return null;}
      let imgSrc = imgEl.getAttribute('src');
      if (!imgSrc){return null;}
      if (!imgSrc.includes('cloudfront.net')){return null;}
