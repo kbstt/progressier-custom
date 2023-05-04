@@ -39,7 +39,7 @@ if (!window.progressierInitializationTimer){
      let titleNodes = document.querySelectorAll('[id="001"]');
      titleNodes.forEach(function(a){
        let text = a.textContent;
-       if (!text)[return;}
+       if (!text){return;}
        titleContent = text;
      });
      if (!titleContent){return null;}
