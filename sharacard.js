@@ -35,9 +35,13 @@ if (!window.progressierInitializationTimer){
   }
   
   function getCustomPWAName(){
-     let titleNode = document.getElementById('001');
-     if (!titleNode){return null;}
-     let titleContent = titleNode.textContent;
+     let titleContent = "";
+     let titleNodes = document.querySelectorAll('[id="001"]');
+     titleNodes.forEach(function(a){
+       let text = a.textContent;
+       if (!text)[return;}
+       titleContent = text;
+     });
      if (!titleContent){return null;}
      return (titleContent||"").trim();
   }
