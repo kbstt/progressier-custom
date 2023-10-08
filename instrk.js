@@ -9,8 +9,8 @@ if (window.location.pathname.startsWith('/dashboard')){
   }
 }
 
-let script = document.createElement("script");
-script.setAttribute("defer", "true");
-script.setAttribute("src", "https://progressier.app/ro9goR4Be1q9FdtNISf8/script.js");
-document.querySelector("body").appendChild(script);
+let progressierScript = document.createElement("script");
+progressierScript.setAttribute("defer", "true");
+progressierScript.setAttribute("src", "https://progressier.app/ro9goR4Be1q9FdtNISf8/script.js");
+document.querySelector("body").appendChild(progressierScript);
 
