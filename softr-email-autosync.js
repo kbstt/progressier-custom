@@ -6,4 +6,3 @@ let searchingEmail = setInterval(function(){
   window.progressier.add({email: email});
   clearInterval(searchingEmail);
 }, 1500);
-searchingEmail();
