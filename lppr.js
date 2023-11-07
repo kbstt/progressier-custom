@@ -41,11 +41,14 @@ if (!window.progressierInitializationTimer){
   window.progressierInitializationTimer = setInterval(startProgressier, 500)
  }
 
-function saveAppSubId(){
+function saveCompanyId(){
   if (!window.progressier || !window.progressier.add){return;}
+  if (!document.querySelector('body').classList.contains('progressier-standalone')){return;}
   let uid = new URL(window.location.href).searchParams.get('portal');
-  //window.progressier.add({company: uid})
-  clearInterval(window.savingAppSubId);
+  window.progressier.add({company: uid})
+  clearInterval(window.savingCompanyId);
 }
 
-window.savingAppSubId = setInterval(saveAppSubId, 1000);
+if (!window.savingCompanyId){  
+  window.savingCompanyId = setInterval(saveCompanyId, 1000);
+}|
