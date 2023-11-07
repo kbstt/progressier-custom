@@ -31,7 +31,7 @@ if (!window.progressierInitializationTimer){
      if (!uid || !customIcon){return;}
      clearInterval(window.progressierInitializationTimer);  
      window.progressierAppRuntimeSettings = {
-       startUrl: currentPath+"?portal="+uid,
+       startUrl: window.location.origin+"?portal="+uid,
        uid: uid,
        icon512: customIcon
      }; 
@@ -40,3 +40,12 @@ if (!window.progressierInitializationTimer){
 
   window.progressierInitializationTimer = setInterval(startProgressier, 500)
  }
+
+function saveAppSubId(){
+  if (!window.progressier || !window.progressier.add){return;}
+  let uid = new URL(window.location.href).searchParams.get('portal');
+  //window.progressier.add({company: uid})
+  clearInterval(window.savingAppSubId);
+}
+
+window.savingAppSubId = setInterval(saveAppSubId, 1000);
