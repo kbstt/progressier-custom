@@ -51,4 +51,4 @@ function saveCompanyId(){
 
 if (!window.savingCompanyId){  
   window.savingCompanyId = setInterval(saveCompanyId, 1000);
-}|
+}
