@@ -31,7 +31,7 @@ if (!window.progressierInitializationTimer){
      if (!uid || !customIcon){return;}
      clearInterval(window.progressierInitializationTimer);  
      window.progressierAppRuntimeSettings = {
-       startUrl: window.location.origin+"?portal="+uid,
+       startUrl: "/?portal="+uid,
        uid: uid,
        icon512: customIcon
      }; 
