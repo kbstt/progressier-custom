@@ -9,7 +9,7 @@ if (!window.progressierInitializationTimer){
   
   function getCustomPWAIcon(){
     try {
-     let imgNode = document.querySelector('img[src*="?w=128&h=&auto=compress&dpr=2&fit=max"]');
+     let imgNode = document.querySelector('img[src*="?w=128&h=&auto=compress"]');
      if (!imgNode){return null;}
      let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
      if (!imgEl){return null;}
