@@ -9,7 +9,7 @@ if (!window.progressierInitializationTimer){
   
   function getCustomPWAIcon(){
     try {
-     let imgNode = document.querySelector('#company_logo img') || document.querySelector('img[src*="?w=128&h=&auto=compress"]');
+     let imgNode = document.querySelector('#company_logo img') || document.querySelector('img[src*="?w=128&h=&auto=compress"]') || document.querySelector('img[src*="?w=384&h=77"]');
      if (!imgNode){return null;}
      let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
      if (!imgEl){return null;}
