@@ -29,7 +29,7 @@ if (!window.progressierInitializationTimer){
     try {
       let urlParam = new URL(window.location.href).searchParams.get('portal');
       if (urlParam){return urlParam;}
-      let textNode = document.querySelector('#company_id');
+      let textNode = document.querySelector('#html-company-name-url-id');
       if (!textNode){return null;}
       let innerTxt = textNode.innerHTML;
       if (!innerTxt){return null;}
