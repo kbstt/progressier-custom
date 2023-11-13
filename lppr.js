@@ -9,7 +9,7 @@ if (!window.progressierInitializationTimer){
   
   function getCustomPWAIcon(){
     try {
-     let imgNode = document.querySelector('#company_logo img') || document.querySelector('img[src*="?w=128&h=&auto=compress"]') || document.querySelector('img[src*="?w=384&h=77"]');
+     let imgNode = document.querySelector('#company_logo img');
      if (!imgNode){return null;}
      let imgEl = (imgNode.nodeName||"").toLowerCase() === "img" ? imgNode : imgNode.querySelector('img');
      if (!imgEl){return null;}
@@ -24,9 +24,26 @@ if (!window.progressierInitializationTimer){
       return null;
     }
   }
+
+  function getCompanyId(){
+    try {
+      let urlParam = new URL(window.location.href).searchParams.get('portal');
+      if (urlParam){return urlParam;}
+      let textNode = document.querySelector('#company_id');
+      if (!textNode){return null;}
+      let innerTxt = textNode.innerHTML;
+      if (!innerTxt){return null;}
+      let split = innerTxt.split("/");
+      if (split && split[0]){return split[0];}
+      return null;
+    }
+    catch(err){
+      return null;
+    }
+  }
   
   function startProgressier(){
-     let uid = new URL(window.location.href).searchParams.get('portal');
+     let uid = getCompanyId();
      let customIcon = getCustomPWAIcon();
      if (!uid || !customIcon){return;}
      clearInterval(window.progressierInitializationTimer);  
