@@ -61,7 +61,8 @@ if (!window.progressierInitializationTimer){
 function saveCompanyId(){
   if (!window.progressier || !window.progressier.add){return;}
   if (!document.querySelector('body').classList.contains('progressier-standalone')){return;}
-  let uid = new URL(window.location.href).searchParams.get('portal');
+  let uid = getCompanyId();
+  if (!uid){return;}
   window.progressier.add({company: uid})
   clearInterval(window.savingCompanyId);
 }
