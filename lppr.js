@@ -60,7 +60,7 @@ if (!window.progressierInitializationTimer){
 
 function saveCompanyId(){
   if (!window.progressier || !window.progressier.add){return;}
-  if (!document.querySelector('body').classList.contains('progressier-standalone')){return;}
+  //if (!document.querySelector('body').classList.contains('progressier-standalone')){return;}
   let uid = getCompanyId();
   if (!uid){return;}
   if (!progressier.user.id){return;}
