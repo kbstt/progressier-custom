@@ -65,7 +65,6 @@ function dynamicallyGenerateManifest(){
   let scope = grabScope();
   let startUrl = grabStartUrl();
   let uid = grabUid();
-  if (!icon512){return;}
   window.progressierAppRuntimeSettings = {
     uid: uid,
     icon512: icon512,
