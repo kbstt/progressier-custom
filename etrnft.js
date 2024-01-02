@@ -3,7 +3,7 @@ function grabColor(){
   let root = document.querySelector(':root');
   let rootStyle = getComputedStyle(root);
   let rgbValue = rootStyle.getPropertyValue(variableName);
-  if (!rgbValue){return #1c4c94;}
+  if (!rgbValue){return "#1c4c94";}
   let hexValue = rgbToHex(rgbValue.trim());
   return hexValue;
 }
