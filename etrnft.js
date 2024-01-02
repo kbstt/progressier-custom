@@ -32,7 +32,7 @@ function grabName(){
 }
 
 function grabIcon(){
-   
+   return "";
 
 }
 
