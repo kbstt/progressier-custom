@@ -1,5 +1,5 @@
 function grabColor(){
-  let variableName = "--color_primary_default"
+  let variableName = "--color_primary_default";
   let root = document.querySelector(':root');
   let rootStyle = getComputedStyle(root);
   let rgbValue = rootStyle.getPropertyValue(variableName);
