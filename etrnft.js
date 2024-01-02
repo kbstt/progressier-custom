@@ -83,3 +83,5 @@ function initializeProgressierScript(){
   progressierScript.setAttribute("src", "https://progressier.app/tZlmQTR8DgpwnIUdl9aI/script.js");
   document.querySelector("body").appendChild(progressierScript);
 }
+
+dynamicallyGenerateManifest();
