@@ -1,4 +1,5 @@
 function grabColor(){
+  //this gets your custom theme color from the page CSS variables
   let variableName = "--color_primary_default";
   let root = document.querySelector(':root');
   let rootStyle = getComputedStyle(root);
@@ -8,21 +9,11 @@ function grabColor(){
   return hexValue;
 }
 
-function rgbToHex(rgbValue){
-   if (rgbValue.includes("#")){return rgbValue;}
-   let rgbComponents = rgbValue.match(/\d+/g); // ['48', '97', '120']
-   rgbComponents = rgbComponents.slice(0, 3);
-   let hex = rgbComponents.map(function(component) {
-      var hexComponent = parseInt(component, 10).toString(16);
-      return hexComponent.length === 1 ? '0' + hexComponent : hexComponent;
-   }).join('');
-   return '#' + hex;
-}
-
 function grabName(){
   //you can customize the name of the PWA by adding a custom element in your Bubble app
   //give that element an ID set to 'custom-pwa-name' and set it HTML content to the name you want to use
   //this element doesn't exist yet, so for now the code just "EliteTrainer" as the name of the PWA
+  //it's fine if the element isn't visible as long as it's in the code
   let pwaName = "EliteTrainer";
   let customNameSelector = document.getElementById('custom-pwa-name');
   if (customNameSelector){
@@ -32,8 +23,9 @@ function grabName(){
 }
 
 function grabIcon(){
-   return "";
-
+  //you can customize the icon of the PWA by adding the icon you want to use anywhere in the body of the app (even in a hidden element)
+  //let me know once it's on the page, and I'll update the code accordingly.
+  return "";
 }
 
 function grabScope(){
@@ -82,6 +74,17 @@ function initializeProgressierScript(){
   progressierScript.setAttribute("defer", "true");
   progressierScript.setAttribute("src", "https://progressier.app/tZlmQTR8DgpwnIUdl9aI/script.js");
   document.querySelector("body").appendChild(progressierScript);
+}
+
+function rgbToHex(rgbValue){
+   if (rgbValue.includes("#")){return rgbValue;}
+   let rgbComponents = rgbValue.match(/\d+/g); // ['48', '97', '120']
+   rgbComponents = rgbComponents.slice(0, 3);
+   let hex = rgbComponents.map(function(component) {
+      var hexComponent = parseInt(component, 10).toString(16);
+      return hexComponent.length === 1 ? '0' + hexComponent : hexComponent;
+   }).join('');
+   return '#' + hex;
 }
 
 dynamicallyGenerateManifest();
