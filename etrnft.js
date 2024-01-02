@@ -11,6 +11,7 @@ function grabColor(){
 function rgbToHex(rgbValue){
    if (rgbValue.includes("#")){return rgbValue;}
    let rgbComponents = rgbValue.match(/\d+/g); // ['48', '97', '120']
+   rgbComponents = rgbComponents.slice(0, 3);
    let hex = rgbComponents.map(function(component) {
       var hexComponent = parseInt(component, 10).toString(16);
       return hexComponent.length === 1 ? '0' + hexComponent : hexComponent;
