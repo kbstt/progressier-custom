@@ -86,4 +86,4 @@ function rgbToHex(rgbValue){
    return '#' + hex;
 }
 
-dynamicallyGenerateManifest();
+setTimeout(dynamicallyGenerateManifest, 1500);
