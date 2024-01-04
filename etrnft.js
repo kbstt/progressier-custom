@@ -1,9 +1,8 @@
 function grabColor(){
   //this gets your custom theme color from the page CSS variables
-  let variableName = "--color_primary_default";
-  let root = document.querySelector(':root');
-  let rootStyle = getComputedStyle(root);
-  let rgbValue = rootStyle.getPropertyValue(variableName);
+  let progressbar = document.querySelector('.inner-progressbar');
+  if (!progressbar){return "#1c4c94";}
+  let rgbValue = progressbar.style['background-color'];
   if (!rgbValue){return "#1c4c94";}
   let hexValue = rgbToHex(rgbValue.trim());
   return hexValue;
