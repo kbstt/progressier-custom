@@ -9,17 +9,17 @@ function grabColor(){
 
 function grabName(){
   let customSelector = document.getElementById('custom-pwa-name');
-  let pwaName = customSelector && customSelector.textContent ? customSelector.textContent : "EliteTrainer";
-  return pwaName;
+  let name = customSelector && customSelector.textContent ? customSelector.textContent : "EliteTrainer";
+  return name;
 }
 
 function grabIcon(){
   let customSelector = document.getElementById('custom-pwa-icon');
-  let pwaIcon = customSelector && customSelector.textContent ? customSelector.textContent : "";
-  if (!pwaIcon.includes("https"){
-     pwaIcon = "https:"+pwaIcon;
+  let icon = customSelector && customSelector.textContent ? customSelector.textContent : "";
+  if (!icon.includes("https")){
+     icon = "https:"+pwaIcon;
   }
-  return pwaIcon;
+  return icon;
 }
 
 function grabScope(){
