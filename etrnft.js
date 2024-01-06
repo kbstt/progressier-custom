@@ -40,9 +40,9 @@ function grabIcon(){
   if (!icon.includes("https")){
      icon = "https:"+icon;
   }
-  let bubbleResizerDomain = bubbleResizerDomain();
+  let domain = bubbleResizerDomain();
   let properSizeQueryString = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
-  let finalUrl = bubbleResizerDomain+icon+properSizeQueryString;
+  let finalUrl = domain+icon+properSizeQueryString;
   return finalUrl;
 }
 
