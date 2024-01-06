@@ -1,30 +1,25 @@
 function grabColor(){
-  //this gets your custom theme color from the page CSS variables
-  let progressbar = document.querySelector('.inner-progressbar');
-  if (!progressbar){return "#1c4c94";}
-  let rgbValue = progressbar.style['background-color'];
-  if (!rgbValue){return "#1c4c94";}
-  let hexValue = rgbToHex(rgbValue.trim());
-  return hexValue;
+  let customSelector = document.getElementById('custom-pwa-color');
+  let color = customSelector && customSelector.textContent ? customSelector.textContent : "#1c4c94";
+  if (color.includes("rgb")){
+    color = rgbToHex(color.trim());
+  }
+  return color;
 }
 
 function grabName(){
-  //you can customize the name of the PWA by adding a custom element in your Bubble app
-  //give that element an ID set to 'custom-pwa-name' and set it HTML content to the name you want to use
-  //this element doesn't exist yet, so for now the code just "EliteTrainer" as the name of the PWA
-  //it's fine if the element isn't visible as long as it's in the code
-  let pwaName = "EliteTrainer";
-  let customNameSelector = document.getElementById('custom-pwa-name');
-  if (customNameSelector){
-    pwaName = customNameSelector.textContent;
-  }
+  let customSelector = document.getElementById('custom-pwa-name');
+  let pwaName = customSelector && customSelector.textContent ? customSelector.textContent : "EliteTrainer";
   return pwaName;
 }
 
 function grabIcon(){
-  //you can customize the icon of the PWA by adding the icon you want to use anywhere in the body of the app (even in a hidden element)
-  //let me know once it's on the page, and I'll update the code accordingly.
-  return "";
+  let customSelector = document.getElementById('custom-pwa-icon');
+  let pwaIcon = customSelector && customSelector.textContent ? customSelector.textContent : "";
+  if (!pwaIcon.includes("https"){
+     pwaIcon = "https:"+pwaIcon;
+  }
+  return pwaIcon;
 }
 
 function grabScope(){
