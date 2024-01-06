@@ -42,7 +42,7 @@ function grabIcon(){
   }
   let domain = bubbleResizerDomain();
   let properSizeQueryString = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
-  let finalUrl = domain+icon+properSizeQueryString;
+  let finalUrl = domain+"/"+icon+properSizeQueryString;
   return finalUrl;
 }
 
@@ -69,6 +69,7 @@ function grabStartUrl(){
 }
 
 function dynamicallyGenerateManifest(){
+  if (!window.location.href.includes("/student")){return;}
   let themeColor = grabColor();
   let name = grabName();
   let icon512 = grabIcon();  
