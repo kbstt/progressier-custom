@@ -17,7 +17,7 @@ function grabIcon(){
   let customSelector = document.getElementById('custom-pwa-icon');
   let icon = customSelector && customSelector.textContent ? customSelector.textContent : "";
   if (!icon.includes("https")){
-     icon = "https:"+pwaIcon;
+     icon = "https:"+icon;
   }
   return icon;
 }
