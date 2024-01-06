@@ -13,13 +13,37 @@ function grabName(){
   return name;
 }
 
+function bubbleResizerDomain(){
+  //Progressier requires exactly a 512x512px image.
+  //We know Bubble has a resizing service hosted at the URL below that allows resizing images on the fly
+  //However, we don't know if Bubble may change where it's hosted in the future
+  //This function guesses what the domain for this is currently based on an image in the head section
+  //this is safer than just hard-coding it here
+  //WARNING: if Bubble changes this part of their infrastructure in the future, custom icons may break
+  let knownDomain = "https://d1muf25xaso8hp.cloudfront.net";
+  let linkElement = document.querySelector('link[href*="cloudfront"]');
+  if (!linkElement){return knownDomain;}
+  let linkElementURL = linkElement.getAttribute('href');
+  if (!linkElementURL || !linkElementURL.includes("cloudfront.net"){return knownDomain;}
+  try {
+    let linkElementURLObj = new URL(linkElementURL);
+    return linkElementURLObj.origin;
+  }
+  catch(err){
+    return knownDomain;
+  }
+}
+
 function grabIcon(){
   let customSelector = document.getElementById('custom-pwa-icon');
   let icon = customSelector && customSelector.textContent ? customSelector.textContent : "";
   if (!icon.includes("https")){
      icon = "https:"+icon;
   }
-  return icon;
+  let bubbleResizerDomain = bubbleResizerDomain();
+  let properSizeQueryString = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
+  let finalUrl = bubbleResizerDomain+icon+properSizeQueryString;
+  return finalUrl;
 }
 
 function grabScope(){
