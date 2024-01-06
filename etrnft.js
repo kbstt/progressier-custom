@@ -9,7 +9,7 @@ function grabColor(){
 
 function grabName(){
   let customSelector = document.getElementById('custom-pwa-name');
-  let name = customSelector && customSelector.textContent ? customSelector.textContent : "EliteTrainer";
+  let name = customSelector && customSelector.textContent ? customSelector.textContent : "";
   return name;
 }
 
@@ -37,6 +37,7 @@ function bubbleResizerDomain(){
 function grabIcon(){
   let customSelector = document.getElementById('custom-pwa-icon');
   let icon = customSelector && customSelector.textContent ? customSelector.textContent : "";
+  if (!icon){return "";}
   if (!icon.includes("https")){
      icon = "https:"+icon;
   }
@@ -85,6 +86,7 @@ function dynamicallyGenerateManifest(){
     startUrl: startUrl,
     themeColor: themeColor
  }
+ if (!icon512 || !name){return;}
  initializeProgressierScript()
 }
 
