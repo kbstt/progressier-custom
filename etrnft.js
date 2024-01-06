@@ -24,7 +24,7 @@ function bubbleResizerDomain(){
   let linkElement = document.querySelector('link[href*="cloudfront"]');
   if (!linkElement){return knownDomain;}
   let linkElementURL = linkElement.getAttribute('href');
-  if (!linkElementURL || !linkElementURL.includes("cloudfront.net"){return knownDomain;}
+  if (!linkElementURL || !linkElementURL.includes("cloudfront.net")){return knownDomain;}
   try {
     let linkElementURLObj = new URL(linkElementURL);
     return linkElementURLObj.origin;
