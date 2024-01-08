@@ -70,8 +70,14 @@ function grabStartUrl(){
 }
 
 function dynamicallyGenerateManifest(){
-  if (!window.location.href.includes("/student")){return;}
   if (window.progressierInitialized){return;}
+  if (window.location.href.includes("/dashboard")){
+    window.progressierInitialized = true;
+    initializeProgressierScript();
+    clearInterval(window.progressierInitializer);
+    return;
+  }
+  if (!window.location.href.includes("/student")){return;}
   let themeColor = grabColor();
   let name = grabName();
   let icon512 = grabIcon();  
