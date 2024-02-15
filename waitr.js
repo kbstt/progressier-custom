@@ -1,7 +1,7 @@
 if (window.location.pathname.startsWith('/dashboard')){    
     window.progressierAppRuntimeSettings = {
       uid: "admin",
-      icon512: "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/eWYX0PrgnbmJTIRgmYiH%2FUwHwAORFLQKJoxo.png?alt=media&token=afd4c24f-5185-4834-98f6-28290bf02146",
+      icon512: "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/eWYX0PrgnbmJTIRgmYiH%2FkVcsGYLSLanrXRL.png?alt=media&token=28f4672c-19ab-4000-9e9c-8af1f6aa7bf4",
       scope: "dashboard/",
       startUrl: "dashboard/",
       themeColor: "#2A2B35",
