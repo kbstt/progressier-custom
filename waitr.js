@@ -4,7 +4,7 @@ if (window.location.pathname.startsWith('/dashboard')){
       icon512: "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/eWYX0PrgnbmJTIRgmYiH%2FmFfWkJpgHdmsqlR.png?alt=media&token=2a76013d-b788-424d-85f9-bdfcb685ae98" ,
       scope: "dashboard/",
       startUrl: "dashboard/",
-      themeColor: "#000000"
+      themeColor: "#2A2B35"
      }
 }
 
