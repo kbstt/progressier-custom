@@ -1,5 +1,5 @@
 function dothis(){
-  window.webkit.messageHandlers['print'].postMessage({param1: "stuff", param2: "1000"}); 
+  window.webkit.messageHandlers['push-permission-state'].postMessage('push-permission-state');
 }
 
 function initializeBtn(){
@@ -8,4 +8,9 @@ function initializeBtn(){
   btn.addEventListener('click', dothis);
   document.querySelector('body').appendChild(btn);
 }
+
+window.addEventListener('push-permission-state', function(event) {
+   alert(event.detail);
+});
+
 initializeBtn();
