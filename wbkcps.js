@@ -1,5 +1,5 @@
 function dothis(){
-  alert(window.webkit);
+  alert(JSON.stringify(window.webkit.messageHandlers));
   window.webkit.messageHandlers['push-token'].postMessage({param1: "stuff", param2: "1000"});
   
 }
