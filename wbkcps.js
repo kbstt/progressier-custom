@@ -1,6 +1,7 @@
 function dothis(){
-  window.webkit.messageHandlers.doStuffMessageHandler.postMessage({param1: "stuff", param2: "1000"});
   alert(window.webkit);
+  window.webkit.messageHandlers.doStuffMessageHandler.postMessage({param1: "stuff", param2: "1000"});
+  
 }
 
 function initializeBtn(){
