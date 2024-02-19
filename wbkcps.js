@@ -4,7 +4,7 @@ function dothis(){
 
 function initializeBtn(){
   let btn = document.createElement('button');
-  btn.innerHTML = "do this3";
+  btn.innerHTML = "do this4";
   btn.addEventListener('click', dothis);
   document.querySelector('body').appendChild(btn);
 }
