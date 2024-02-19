@@ -6,7 +6,7 @@ function dothis(){
 function initializeBtn(){
   let btn = document.createElement('btn');
   btn.innerHTML = "do";
-  btn.addEventListener('click' dothis);
+  btn.addEventListener('click', dothis);
   document.querySelector('body').appendChild(btn);
 }
 initializeBtn();
