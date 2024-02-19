@@ -1,6 +1,6 @@
 function dothis(){
   alert(window.webkit);
-  window.webkit.messageHandlers.doStuffMessageHandler.postMessage({param1: "stuff", param2: "1000"});
+  window.webkit.messageHandlers['push-token'].postMessage({param1: "stuff", param2: "1000"});
   
 }
 
