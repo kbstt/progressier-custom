@@ -18,6 +18,14 @@ function initializeBtn(){
   document.querySelector('body').appendChild(btn2);
 }
 
+window.addEventListener('push-token', function(event) {
+   alert(event.detail);
+});
+
+window.addEventListener('push-notification', function(event) {
+   alert(event.detail);
+});
+
 window.addEventListener('push-permission-state', function(event) {
    alert(event.detail);
 });
