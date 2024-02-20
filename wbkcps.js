@@ -6,6 +6,10 @@ function pushrequest(){
   window.webkit.messageHandlers['push-permission-request'].postMessage('push-permission-request');
 }
 
+function pushtoken(){
+  window.webkit.messageHandlers['push-token'].postMessage('push-token');
+}
+
 function initializeBtn(){
   let btn1 = document.createElement('button');
   btn1.innerHTML = "current push status";
@@ -16,6 +20,11 @@ function initializeBtn(){
   btn2.innerHTML = "request permission";
   btn2.addEventListener('click', pushrequest);
   document.querySelector('body').appendChild(btn2);
+
+  let btn3 = document.createElement('button');
+  btn3.innerHTML = "get token";
+  btn3.addEventListener('click', pushtoken);
+  document.querySelector('body').appendChild(btn3);
 }
 
 window.addEventListener('push-token', function(event) {
