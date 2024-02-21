@@ -48,6 +48,30 @@ function initializeBtns(){
     alert(Notification.permission);
   });
   document.querySelector('body').appendChild(btn3);
+
+  let btn4 = document.createElement('button');
+  btn4.innerHTML = 'progressier.push.isCompatible()';
+  btn4.addEventListener('click', async function(){
+    let i = await progressier.push.isCompatible();
+    alert(i);
+  });
+  document.querySelector('body').appendChild(btn4);
+
+ let btn5 = document.createElement('button');
+  btn5.innerHTML = 'progressier.push.isSubscribed()';
+  btn5.addEventListener('click', async function(){
+    let i = await progressier.push.isSubscribed();
+    alert(i);
+  });
+  document.querySelector('body').appendChild(btn5);
+
+  let btn6 = document.createElement('button');
+  btn6.innerHTML = 'progressier.push.isDenied()';
+  btn6.addEventListener('click', async function(){
+    let i = await progressier.push.isDenied();
+    alert(i);
+  });
+  document.querySelector('body').appendChild(btn6);
   
 }
 
