@@ -77,5 +77,5 @@ function initializeBtns(){
   
 }
 
-initializeBtns();
+//initializeBtns();
 //mapWebkitPushWithWebPush();
