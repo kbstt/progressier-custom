@@ -31,7 +31,7 @@ function mapWebkitPushWithWebPush(){
 }
 
 function initializeBtn(){
-  let btn1 = document.createElement('button');
+ /* let btn1 = document.createElement('button');
   btn1.innerHTML = "current push status";
   btn1.addEventListener('click', getAppStorePushStatus);
   document.querySelector('body').appendChild(btn1);
@@ -39,8 +39,16 @@ function initializeBtn(){
   let btn2 = document.createElement('button');
   btn2.innerHTML = "request permission";
   btn2.addEventListener('click', requestAppStorePermission);
-  document.querySelector('body').appendChild(btn2);
+  document.querySelector('body').appendChild(btn2);*/
+
+  let btn3 = document.createElement('button');
+  document.querySelector('body').appendChild(btn3);
+  let counter = 1;
+  setInterval(function(){
+    counter += 1;
+    btn3.innerHTML = counter;
+  }, 500);
 }
 
-//initializeBtn();
+initializeBtn();
 //mapWebkitPushWithWebPush();
