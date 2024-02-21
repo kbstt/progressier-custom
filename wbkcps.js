@@ -32,7 +32,11 @@ window.addEventListener('push-token', function(event) {
 });
 
 window.addEventListener('push-notification', function(event) {
-   alert(event.detail);
+  let token = event.detail.token;
+  console.log(token);
+  if (token){
+    progressier.add({apnDeviceToken: token});
+  }
 });
 
 window.addEventListener('push-permission-state', function(event) {
