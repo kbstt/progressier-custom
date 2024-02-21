@@ -16,7 +16,8 @@ function initializeAppStorePushListener(){
   });
 }
 
-function getAppStorePushStatus(){
+function getNativePushStatus(){
+  alert(progressier.detection.supportsNativeiOSPush());
   window.webkit.messageHandlers['progressier-requests-push-status'].postMessage('progressier-requests-push-status');
 }
 
@@ -32,8 +33,8 @@ function mapWebkitPushWithWebPush(){
 
 function initializeBtn(){
  let btn1 = document.createElement('button');
-  btn1.innerHTML = "current push status";
-  btn1.addEventListener('click', getAppStorePushStatus);
+  btn1.innerHTML = "current push status2";
+  btn1.addEventListener('click', getNativePushStatus);
   document.querySelector('body').appendChild(btn1);
 
   let btn2 = document.createElement('button');
