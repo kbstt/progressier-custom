@@ -42,5 +42,5 @@ function initializeBtn(){
   document.querySelector('body').appendChild(btn2);
 }
 
-initializeBtn();
-mapWebkitPushWithWebPush();
+//initializeBtn();
+//mapWebkitPushWithWebPush();
