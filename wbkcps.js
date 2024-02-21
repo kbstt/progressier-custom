@@ -8,7 +8,7 @@ function initializeAppStorePushListener(){
   window.addEventListener('progressier-apn-device-token-received', function(event) {
     let token = event.detail;
     if (!token){return;}
-    progressier.add({apnDeviceToken: token}); }
+    progressier.add({apnDeviceToken: token});
   });
   
   window.addEventListener('progressier-push-status-received', function(event) {
