@@ -43,9 +43,10 @@ function initializeBtns(){
   document.querySelector('body').appendChild(btn2);
 
   let btn3 = document.createElement('button');
-  btn3.innerHTML = 'notification.permission';
+  btn3.innerHTML = 'window.notification.permission';
   btn3.addEventListener('click', function(){
-    alert(Notification.permission);
+    alert(window.Notification);
+    alert(window.Notification.permission);
   });
   document.querySelector('body').appendChild(btn3);
 
