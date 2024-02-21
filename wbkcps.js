@@ -11,7 +11,7 @@ function initializeAppStorePushListener(){
     progressier.add({apnDeviceToken: token});
   });
   
-  window.addEventListener('progressier-push-status-received', function(event) {
+  window.addEventListener('progressier-push-status-updated', function(event) {
      Notification.permission = event.detail;
   });
 }
