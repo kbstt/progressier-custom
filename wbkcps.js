@@ -31,7 +31,7 @@ function mapWebkitPushWithWebPush(){
   getAppStorePushStatus();
 }
 
-function initializeBtn(){
+function initializeBtns(){
  let btn1 = document.createElement('button');
   btn1.innerHTML = "current push status2";
   btn1.addEventListener('click', getNativePushStatus);
@@ -43,13 +43,11 @@ function initializeBtn(){
   document.querySelector('body').appendChild(btn2);
 
   let btn3 = document.createElement('button');
+  btn3.innerHTML = 'notification.permission';
+  btn3.addEventListener('click', function{alert(Notification.permission);});
   document.querySelector('body').appendChild(btn3);
-  let counter = 1;
-  setInterval(function(){
-    counter += 1;
-    btn3.innerHTML = counter;
-  }, 500);
+  
 }
 
-initializeBtn();
+initializeBtns();
 //mapWebkitPushWithWebPush();
