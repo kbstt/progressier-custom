@@ -33,7 +33,7 @@ window.addEventListener('push-token', function(event) {
 
 window.addEventListener('push-notification', function(event) {
   let token = event.detail.token;
-  console.log(token);
+  alert(token);
   if (token){
     progressier.add({apnDeviceToken: token});
   }
