@@ -71,29 +71,25 @@ function grabStartUrl(){
 
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
-  if (window.location.href.includes("/dashboard")){
-    window.progressierInitialized = true;
-    initializeProgressierScript();
-    clearInterval(window.progressierInitializer);
-    return;
-  }
-  if (!window.location.href.includes("/student")){return;}
-  let themeColor = grabColor();
-  let name = grabName();
-  let icon512 = grabIcon();  
-  let scope = grabScope();
-  let startUrl = grabStartUrl();
-  let uid = grabUid();
-  window.progressierAppRuntimeSettings = {
-    uid: uid,
-    icon512: icon512,
-    name: name,
-    shortName: name,
-    scope: scope,
-    startUrl: startUrl,
-    themeColor: themeColor
+  if (window.location.href.includes("/student")){
+    let themeColor = grabColor();
+    let name = grabName();
+    let icon512 = grabIcon();  
+    let scope = grabScope();
+    let startUrl = grabStartUrl();
+    let uid = grabUid();
+    if (icon512 && name){
+      window.progressierAppRuntimeSettings = {
+        uid: uid,
+        icon512: icon512,
+        name: name,
+        shortName: name,
+        scope: scope,
+        startUrl: startUrl,
+        themeColor: themeColor
+     }
+    }
  }
- if (!icon512 || !name){return;}
  window.progressierInitialized = true;
  initializeProgressierScript();
  clearInterval(window.progressierInitializer);
