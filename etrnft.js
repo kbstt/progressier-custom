@@ -78,8 +78,8 @@ function dynamicallyGenerateManifest(){
     let scope = grabScope();
     let startUrl = grabStartUrl();
     let uid = grabUid();
-    if (icon512 && name){
-      window.progressierAppRuntimeSettings = {
+    if (!icon512 || !name){return;}
+    window.progressierAppRuntimeSettings = {
         uid: uid,
         icon512: icon512,
         name: name,
@@ -87,7 +87,6 @@ function dynamicallyGenerateManifest(){
         scope: scope,
         startUrl: startUrl,
         themeColor: themeColor
-     }
     }
  }
  window.progressierInitialized = true;
