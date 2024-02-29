@@ -71,6 +71,7 @@ function grabStartUrl(){
 
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
+  //the personalization isn't available on page load, so we need to wait till it's there
   if (window.location.href.includes("/student")){
     let themeColor = grabColor();
     let name = grabName();
