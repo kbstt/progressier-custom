@@ -6,8 +6,10 @@ function syncTagsFromPageToProgressier(){
   tags.forEach(function(tag, i){
     tags[i] = tag.trim();
   });
+  console.log('tags retrieved from page':);
   console.log(tags);
-  //progressier.add({tags: tags});
+  progressier.add({tags: tags});
+  clearInterval(retrievingTags);
 }
 
-setInterval(syncTagsFromPageToProgressier, 1000);
+let retrievingTags = setInterval(syncTagsFromPageToProgressier, 1000);
