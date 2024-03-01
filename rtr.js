@@ -1,9 +1,13 @@
 function syncTagsFromPageToProgressier(){
   if (!progressier || !progressier.add){return;}
-  let tags = document.getElementById('progressiertags');
-  if (!tags){return;}
-  let innerTxt = (tags.innerHTML ||"").split(',');
-  console.log(innerTxt);
+  let el = document.getElementById('progressiertags');
+  if (!el){return;}
+  let tags = (tags.textContent ||"").split(',');
+  tags.forEach(function(tag, i){
+    tags[i] = tag.trim();
+  });
+  console.log(tags);
+  //progressier.add({tags: tags});
 }
 
 setInterval(syncTagsFromPageToProgressier, 1000);
