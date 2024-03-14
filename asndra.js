@@ -1,6 +1,6 @@
 function initializeProgressierScript(){
   let path = window.location.pathname.split('/');
-  if (path.length < 2){return;}
+  if (path.length < 3){return;}
   let uid = path[2];
   let startUrl = path[1] + "/"+path[2]+"/";
   let scope = startUrl;
