@@ -1,7 +1,7 @@
 let searchingCurrentUserTags = setInterval(async function(){
   if (!window.progressier || !window.progressier.add){return;}
   let currentUserTagContainer = document.getElementById('current-user-tags');
-  if (!currentUserIdContainer){return;}
+  if (!currentUserTagContainer){return;}
   let currentUserTags = currentUserTagContainer.textContent;
   if (!currentUserTags){return;}
   let tagSplit = currentUserTags.split(',');
