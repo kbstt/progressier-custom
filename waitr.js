@@ -11,5 +11,5 @@ if (window.location.pathname.startsWith('/dashboard')){
 }
 
 let progressierScript = document.createElement('script');
-progressierScript.setAttribute('src', 'https://progressier.app/fAplvAV9Zw8p7KVdgmMY/script.js');
+progressierScript.setAttribute('src', 'https://progressier.app/EhmBUzDlLqGIovKO8jG1/script.js');
 document.querySelector('body').appendChild(progressierScript);
