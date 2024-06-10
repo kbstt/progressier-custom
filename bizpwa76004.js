@@ -6,8 +6,8 @@ function preinitializeProgressier(){
     config.icon512 = "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/eWYX0PrgnbmJTIRgmYiH%2FiDWpnFeonBLfiQN.png?alt=media&token=7b7d4e52-4aac-46bc-bbe9-ece8bc6738f7";
   }
   if (pathname.includes("/version-test")){
-    config.name = "[検証環境] REALGETs";
-    config.shortName = "[検証環境] REALGETs";
+    config.name = "[DEV] REALGETs";
+    config.shortName = "[DEV] REALGETs";
   }
   window.progressierAppRuntimeSettings = config;
   let progressierScript = document.createElement("script");
