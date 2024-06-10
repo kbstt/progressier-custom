@@ -1,22 +1,15 @@
 function preinitializeProgressier(){
   let pathname = window.location.pathname;
-  let startUrl = "";
-  let customIcon = false;
-  if (pathname.startsWith("/manage/agent")){
-    startUrl = "manage/agent";
-    customIcon = true;
+  let config = {};
+  if (pathname.includes("/manage/agent") || pathname.includes("/manage/admin")){
+    config.startUrl = window.location.pathname.slice(1, window.location.pathname.length);
+    config.icon512 = "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/eWYX0PrgnbmJTIRgmYiH%2FiDWpnFeonBLfiQN.png?alt=media&token=7b7d4e52-4aac-46bc-bbe9-ece8bc6738f7";
   }
-  else if (pathname.startsWith("/manage/admin")){
-    startUrl = "manage/admin";
-    customIcon = true;
+  if (pathname.includes("/version-test")){
+    config.name = "[検証環境] REALGETs";
+    config.shortName = "[検証環境] REALGETs";
   }
-  window.progressierAppRuntimeSettings = {
-    startUrl: startUrl,
-  } 
-  if (customIcon){
-    window.progressierAppRuntimeSettings.icon512 = "https://pwa.xyz/v0/b/pwaa-8d87e.appspot.com/o/eWYX0PrgnbmJTIRgmYiH%2FiDWpnFeonBLfiQN.png?alt=media&token=7b7d4e52-4aac-46bc-bbe9-ece8bc6738f7";
-  }
-
+  window.progressierAppRuntimeSettings = config;
   let progressierScript = document.createElement("script");
   progressierScript.setAttribute("src", "https://progressier.app/1zd2mFNRlQRP9IOZW0hI/script.js");
   document.querySelector("head").appendChild(progressierScript);
