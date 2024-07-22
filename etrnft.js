@@ -75,7 +75,7 @@ function dynamicallyGenerateManifest(){
   if (window.location.href.includes("/student")){
     let themeColor = grabColor();
     let name = grabName();
-    if (!name || name === "Elite Trainer"){return;}
+    if (!window.progressierDataLoadingTimedout && (!name || name === "Elite Trainer")){return;}
     let icon512 = grabIcon();  
     let scope = grabScope();
     let startUrl = grabStartUrl();
@@ -120,3 +120,6 @@ function rgbToHex(rgbValue){
 }
 
 window.progressierInitializer = setInterval(dynamicallyGenerateManifest, 1000);
+setTimeout(function(){
+  window.progressierDataLoadingTimedout = true;
+}, 10000);
