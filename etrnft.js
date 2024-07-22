@@ -75,6 +75,7 @@ function dynamicallyGenerateManifest(){
   if (window.location.href.includes("/student")){
     let themeColor = grabColor();
     let name = grabName();
+    if (!name || name === "Elite Trainer"){return;}
     let icon512 = grabIcon();  
     let scope = grabScope();
     let startUrl = grabStartUrl();
