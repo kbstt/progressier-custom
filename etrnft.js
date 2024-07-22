@@ -69,6 +69,35 @@ function grabStartUrl(){
   return path+(searchParams||"");
 }
 
+function removeSpecialCharacters(str){
+   return str.replace(/ã/g, "a")
+  .replace(/à/g, "a")
+  .replace(/á/g, "a")
+  .replace(/â/g, "a")
+  .replace(/ã/g, "a")
+  .replace(/ä/g, "a")
+  .replace(/è/g, "e")
+  .replace(/é/g, "e")
+  .replace(/ê/g, "e")
+  .replace(/ë/g, "e")
+  .replace(/ì/g, "i")
+  .replace(/í/g, "i")
+  .replace(/î/g, "i")
+  .replace(/ï/g, "i")
+  .replace(/ö/g, "o")
+  .replace(/õ/g, "o")
+  .replace(/ô/g, "o")
+  .replace(/ó/g, "o")
+  .replace(/ò/g, "o")
+  .replace(/ü/g, "u")
+  .replace(/û/g, "u")
+  .replace(/ú/g, "u")
+  .replace(/ù/g, "u")
+  .replace(/ù/g, "u")
+  .replace(/ç/g, "c")
+  .replace(/ñ/g, "n")
+}
+
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
   //the personalization isn't available on page load, so we need to wait till it's there
@@ -81,11 +110,12 @@ function dynamicallyGenerateManifest(){
     let startUrl = grabStartUrl();
     let uid = grabUid();
     if (!icon512 || !name){return; }
+    
     window.progressierAppRuntimeSettings = {
         uid: uid,
-        icon512: icon512,
-        name: name,
-        shortName: name,
+        icon512: removeSpecialCharacters(icon512),
+        name: removeSpecialCharacters(name),
+        shortName: removeSpecialCharacters(name),
         scope: scope,
         startUrl: startUrl,
         themeColor: themeColor
