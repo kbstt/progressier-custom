@@ -113,9 +113,12 @@ function dynamicallyGenerateManifest(){
     
     window.progressierAppRuntimeSettings = {
         uid: uid,
-        icon512: removeSpecialCharacters(icon512),
-        name: removeSpecialCharacters(name),
-        shortName: removeSpecialCharacters(name),
+        //icon512: removeSpecialCharacters(icon512),
+        //name: removeSpecialCharacters(name),
+        // shortName: removeSpecialCharacters(name),
+        icon512: icon512,
+        name: name,
+        shortName: shortName,
         scope: scope,
         startUrl: startUrl,
         themeColor: themeColor
