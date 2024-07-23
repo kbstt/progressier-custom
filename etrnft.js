@@ -69,7 +69,7 @@ function grabStartUrl(){
   return path+(searchParams||"");
 }
 
-function removeSpecialCharacters(str){
+/*function removeSpecialCharacters(str){
    return str.replace(/ã/g, "a")
   .replace(/à/g, "a")
   .replace(/á/g, "a")
@@ -96,7 +96,7 @@ function removeSpecialCharacters(str){
   .replace(/ù/g, "u")
   .replace(/ç/g, "c")
   .replace(/ñ/g, "n")
-}
+}*/
 
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
