@@ -69,7 +69,7 @@ function grabStartUrl(){
   return path+(searchParams||"");
 }
 
-/*function removeSpecialCharacters(str){
+function removeSpecialCharacters(str){
    return str.replace(/ã/g, "a")
   .replace(/à/g, "a")
   .replace(/á/g, "a")
@@ -96,7 +96,7 @@ function grabStartUrl(){
   .replace(/ù/g, "u")
   .replace(/ç/g, "c")
   .replace(/ñ/g, "n")
-}*/
+}
 
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
@@ -113,12 +113,12 @@ function dynamicallyGenerateManifest(){
     
     window.progressierAppRuntimeSettings = {
         uid: uid,
-        //icon512: removeSpecialCharacters(icon512),
-        //name: removeSpecialCharacters(name),
-        // shortName: removeSpecialCharacters(name),
-        icon512: icon512,
-        name: name,
-        shortName: name,
+        icon512: removeSpecialCharacters(icon512),
+        name: removeSpecialCharacters(name),
+         shortName: removeSpecialCharacters(name),
+       // icon512: icon512,
+        //name: name,
+        //shortName: name,
         scope: scope,
         startUrl: startUrl,
         themeColor: themeColor
