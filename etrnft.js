@@ -118,7 +118,7 @@ function dynamicallyGenerateManifest(){
         // shortName: removeSpecialCharacters(name),
         icon512: icon512,
         name: name,
-        shortName: shortName,
+        shortName: name,
         scope: scope,
         startUrl: startUrl,
         themeColor: themeColor
