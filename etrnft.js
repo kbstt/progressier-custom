@@ -121,7 +121,8 @@ function dynamicallyGenerateManifest(){
         shortName: name,
         scope: scope,
         startUrl: startUrl,
-        themeColor: themeColor
+        themeColor: themeColor,
+        buttonColor: themeColor
     }
  }
  window.progressierInitialized = true;
