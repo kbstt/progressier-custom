@@ -5,31 +5,18 @@ function grabName(){
   return content.trim();
 }
 
-function findIcon(){
-  try {
-    return Array.from(document.querySelectorAll('img[src*="cloudfront"]')).find(function(i) {
-      let bounds = i.getBoundingClientRect();
-      return bounds.x < 40 && bounds.y < 40;
-    });
-  }
-  catch(err){
-    return null;
-  }
-}
-
 function grabIcon(){
   try {
-    let img = findIcon();
-    let src = img.getAttribute("src");
-    let url = new URL(src);
+    let favicon = document.querySelector('head link[rel="icon"]');
+    let src = favicon.getAttribute("href");
     let resizedQueryString = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
-    let finalUrl = "https://"+ url.host + url.pathname + resizedQueryString;
-    return finalUrl;
-    }
+    let finalUrl = "https://d1muf25xaso8hp.cloudfront.net/https://"+src+ resizedQueryString;
+    return new URL(finalUrl);
+  }
   catch(err){
     return null;
   }
-}
+};
 
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
