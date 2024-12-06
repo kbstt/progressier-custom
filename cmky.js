@@ -32,7 +32,7 @@ function grabIcon(){
     let src = favicon.getAttribute("href");
     let cdnDomain = bubbleResizerDomain();
     let resizedQueryString = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
-    let finalUrl = cdnDomain+"/https:ABC"+ src + resizedQueryString;
+    let finalUrl = cdnDomain+"/https:"+ src + resizedQueryString;
     return new URL(finalUrl).href;
   }
   catch(err){
