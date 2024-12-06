@@ -5,9 +5,21 @@ function grabName(){
   return content.trim();
 }
 
+function findIcon(){
+  try {
+    return Array.from(document.querySelectorAll('img[src*="cloudfront"]')).find(function(i) {
+      let bounds = i.getBoundingClientRect();
+      return bounds.x < 40 && bounds.y < 40;
+    });
+  }
+  catch(err){
+    return null;
+  }
+}
+
 function grabIcon(){
   try {
-    let img = document.querySelectorAll('img[src*="cloudfront"]')[0];
+    let img = findIcon();
     let src = img.getAttribute("src");
     let url = new URL(src);
     let resizedQueryString = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
