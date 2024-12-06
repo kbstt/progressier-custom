@@ -42,14 +42,13 @@ function grabIcon(){
 
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
-  //the personalization isn't available on page load, so we need to wait till it's there
-  if (window.location.href.includes("/login")){return;}
-  let name = grabName();
-  let icon512 = grabIcon();  
-  let uid = name.toLowerCase();
-  if (!icon512 || !name){return; }
-    
-  window.progressierAppRuntimeSettings = {  uid: uid, icon512: icon512, name: name, shortName: name};
+  if (window.location.host !== "community-key.com"){
+    let name = grabName();
+    let icon512 = grabIcon();  
+    let uid = name.toLowerCase();
+    if (!icon512 || !name){return; }
+    window.progressierAppRuntimeSettings = {uid: uid, icon512: icon512, name: name, shortName: name};
+  }
   window.progressierInitialized = true;
   initializeProgressierScript();
   clearInterval(window.progressierInitializer);
