@@ -22,7 +22,7 @@ function grabIcon(){
 function dynamicallyGenerateManifest(){
   if (window.progressierInitialized){return;}
   //the personalization isn't available on page load, so we need to wait till it's there
-  if (window.location.href.includes("/login)){return;}
+  if (window.location.href.includes("/login")){return;}
   let name = grabName();
   let icon512 = grabIcon();  
   let uid = name.toLowerCase();
