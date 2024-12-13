@@ -2,6 +2,8 @@ function grabName(){
   let node = document.querySelector('head > title');
   let content = (node && node.innerHTML) ? node.innerHTML : "";
   if (content.includes("Unlock The Power")){return "";}
+  if (content.includes("Authentication")){return "";}
+  if (content.includes("Community Key")){return "";}
   return content.trim();
 }
 
