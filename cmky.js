@@ -64,6 +64,3 @@ function initializeProgressierScript(){
 }
 
 window.progressierInitializer = setInterval(dynamicallyGenerateManifest, 1000);
-setTimeout(function(){
-  window.progressierDataLoadingTimedout = true;
-}, 10000);
