@@ -5,6 +5,7 @@ function correctDeveloperError(){
     p.taskQueue.push({execution:null,data:e,status:"queued"});
     setTimeout(p.queueTasks,150)
   }
+  console.log('developer error corrected');
   clearInterval(window.overwritingDeveloperError);
 }
 
