@@ -157,3 +157,15 @@ window.progressierInitializer = setInterval(dynamicallyGenerateManifest, 1000);
 setTimeout(function(){
   window.progressierDataLoadingTimedout = true;
 }, 10000);
+
+setInterval(function(){
+  try {
+     let color = grabColor();
+     let metatag = document.querySelector('meta[name="theme-color"]');
+     if (!metatag){return;}
+     let current = metatag.getAttribute('content');
+     if (current === color){return;}
+     metatag.setAttribute('content', color);
+  }
+  catch(err){}
+}, 500);
