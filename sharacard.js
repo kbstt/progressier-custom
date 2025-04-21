@@ -24,10 +24,17 @@ if (!window.progressierInitializationTimer){
      if (!imgEl){return null;}
      let imgSrc = imgEl.getAttribute('src');
      if (!imgSrc){return null;}
-     if (!imgSrc.includes('cloudfront.net')){return null;}
-     let srcUrl = new URL(imgSrc);
-     srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
-     return srcUrl.href;
+     if (imgSrc.includes('cloudfront.net')){
+       let srcUrl = new URL(imgSrc);
+       srcUrl.search = "?w=512&h=512&fit=crop&auto=compress&dpr=1";
+       return srcUrl.href
+     }
+     else if (imgSrc.includes('cdn.bubble.io')){
+       return imgSrc.replace(/w=\d+/, 'w=512').replace(/h=\d+/, 'h=512')
+     }
+     else {
+       return null;
+     }
     }
     catch(err){
       return null;
