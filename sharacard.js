@@ -30,7 +30,7 @@ if (!window.progressierInitializationTimer){
        return srcUrl.href
      }
      else if (imgSrc.includes('cdn.bubble.io')){
-       return imgSrc.replace(/w=\d+/, 'w=512').replace(/h=\d+/, 'h=512')
+       return imgSrc.replace(/w=\d+/, 'w=512').replace(/h=\d+/, 'h=512').replace(/dpr=\d+/, 'dpr=1').replace('fit=contain', 'fit=cover');
      }
      else {
        return null;
