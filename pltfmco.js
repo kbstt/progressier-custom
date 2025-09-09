@@ -16,8 +16,6 @@ async function initializeProgressier(){
 	let body = await response.text();	
 	let appObj = (JSON.parse(body)||{}).app;
 	if (!appObj){return;}
-	if (!appObj.showToolbox){return;}
-	if (appObj.disableToolbox){return;}
 	let isStandalone = navigator.standalone || window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.matchMedia('(display-mode: minimal-ui)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches;
 	if (isStandalone){return;}
 	let id = "progressier-install-icon";
