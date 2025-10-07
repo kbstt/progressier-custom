@@ -1,6 +1,6 @@
 let styleEl = document.createElement('style');
-styleEl.innerHTML = `@supports (-webkit-touch-callout: none) and (pointer: coarse) {
-  .progressier-install-banner, .progressier-widget{
+styleEl.innerHTML = `@supports (-webkit-touch-callout: none) {
+  .progressier-install-banner, .progressier-widget {
     display: none !important;
   }
 }`;
