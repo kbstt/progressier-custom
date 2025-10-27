@@ -1,0 +1,8 @@
+window.enablingPullToRefresh = setInterval(function(){
+  if (!window.progressier){return;}
+  if (!window.progressier.detection){return;}
+  if (!window.progressier.detection.isIOS()){clearInterval(window.enablingPullToRefresh);return;}
+  if (!window.progressier.detection.isStandalone()){clearInterval(window.enablingPullToRefresh);return;}
+  new ProgressierPullToRefresh(progressier);  
+  clearInterval(window.enablingPullToRefresh);
+}, 500);
