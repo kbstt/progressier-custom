@@ -24,11 +24,3 @@ const script = document.createElement("script");
 script.src = "https://progressier.app/GeBtvVp5TAAGbHE3O2GE/script.js";
 script.defer = true;
 document.querySelector("head").appendChild(script);
-
-/*Note: the present script should replace the following snippet in your code:
-
-<link rel="manifest" href="https://progressier.app/GeBtvVp5TAAGbHE3O2GE/progressier.json"/>
-<script defer src="https://progressier.app/GeBtvVp5TAAGbHE3O2GE/script.js"></script> 
-
-It's important to replace BOTH the script AND the manifest.
-*/
